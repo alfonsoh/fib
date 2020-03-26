@@ -14,7 +14,7 @@ after_success:
   - docker build -t alfonsohooker/fib-server ./server
   - docker build -t alfonsohooker/fib-worker ./worker
   # Login to Docker CLI
-  - echo "$DOCKER_PASSWD" | docker login -u "DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
   - docker push alfonsohooker/fib-client
   - docker push alfonsohooker/fib-nginx
