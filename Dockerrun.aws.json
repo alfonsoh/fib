@@ -1,0 +1,36 @@
+{
+  "AWSEBDockerfunVersion": 3,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "alfonsohooker/fib-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "server",
+      "image": "alfonsohooker/fib-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "alfonsohooker/fib-worker",
+      "hostname": "worker",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "alfonsohooker/fib-worker",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
+    }
+  ]
+}
