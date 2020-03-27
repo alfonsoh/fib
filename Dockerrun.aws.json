@@ -1,5 +1,5 @@
 {
-  "AWSEBDockerfunVersion": 3,
+  "AWSEBDockerunVersion": 4,
   "containerDefinitions": [
     {
       "name": "client",
