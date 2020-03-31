@@ -15,8 +15,21 @@ after_success:
   - docker build -t alfonsohooker/fib-worker ./worker
   # Login to Docker CLI
   - echo "$DOCKER_PASSWD" | docker login -u "$DOCKER_ID" --password-stdin
-  # Take those images and push them to docker hub
+  # Push these images to the docker hub account
   - docker push alfonsohooker/fib-client
   - docker push alfonsohooker/fib-nginx
   - docker push alfonsohooker/fib-server
   - docker push alfonsohooker/fib-worker
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "fib"
+  env: "Fib-env"
+  bucket_name: "elasticbeanstalk-us-east-1-967195537723"
+  bucket_path: "fib"
+  on:
+    branch: master
+  access_key_id: $access_key_id
+  secret_access_key: $secret_access_key
