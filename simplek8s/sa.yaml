@@ -1,0 +1,14 @@
+apiVersion: v1
+imagePullSecrets:
+- name: secret
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2020-02-11T01:24:58Z"
+  name: default
+  namespace: default
+  selfLink: /api/v1/namespaces/default/serviceaccounts/default
+  uid: 50fa1de1-4c6d-11ea-9359-080027cb823e
+secrets:
+- name: default-token-nnk28
+imagePullSecrets:
+- name: secret
